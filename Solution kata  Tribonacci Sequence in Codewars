@@ -1,0 +1,27 @@
+My solution to this kata looks like this:
+
+
+def tribonacci(signature, n):
+    d = signature #The list for writing tribonacci
+    i = 0
+    k = 0
+    #Conditions for n = 1,2,3:
+    if n == 0:
+        return []
+    if n == 1:
+        return [signature[0]]
+    if n == 2:
+        return [signature[0], signature[1]]
+    if n == 3:
+        return signature
+    #A loop for calculating subsequent values:
+    while i <= n-3:
+        if i == 0:
+            k = sum(signature)
+            d.append(k)
+        while len(d) < n:
+            k = d[(len(d)-3)] + d[(len(d)-2)] + d[(len(d)-1)]
+            d.append(k)
+        i += 1
+    return d
+        
